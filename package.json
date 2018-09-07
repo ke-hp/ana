@@ -1,0 +1,32 @@
+{
+  "name": "ana",
+  "version": "1.0.0",
+  "description": "server",
+  "main": "bin/www.js",
+  "scripts": {
+    "start": "tsc && node dist/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/longwdl/nradio_it_cloud_ana.git"
+  },
+  "author": "wan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/longwdl/nradio_it_cloud_ana/issues"
+  },
+  "homepage": "https://github.com/longwdl/nradio_it_cloud_ana#readme",
+  "dependencies": {
+    "@types/debug": "0.0.30",
+    "@types/dotenv": "^4.0.3",
+    "debug": "^3.1.0",
+    "dotenv": "^4.0.0",
+    "mongoose": "^5.0.14",
+    "mqtt": "^2.15.1"
+  },
+  "devDependencies": {
+    "@types/mongodb": "^3.1.4",
+    "@types/mongoose": "^5.2.6",
+    "@types/node": "^10.7.1"
+  }
+}

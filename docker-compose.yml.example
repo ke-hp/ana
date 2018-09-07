@@ -1,0 +1,20 @@
+version: "3"
+services:
+  ana:
+    build: .
+    privileged: false
+    restart: always
+    depends_on:
+      - mongoDB
+    environment:
+      - VIRTUAL_HOST=example.com
+      - MONGO_URI=mongodb://localhost:27017
+      - MQTT_URL=mqtt://localhost:1883
+      - MQTT_USERNAME=nradio
+      - MQTT_PASSWORD=nradio
+      - MQTT_MOSCA_ID=mosca
+      - ANA_CLIENT_ID=ana
+  mongoDB:
+    image: mongo:3.5
+    privileged: false
+    restart: always
