@@ -1,13 +1,16 @@
 module.exports = (mongoose: any) => {
-    const Model = mongoose.model('mac', new mongoose.Schema({
-        mac: { type: String, required: true, unique: true },
-        company: { type: String },
-        sta: { type: Number },
-        ver : { type: String },
-        ap: { type: Number },
-        type: { type: Number },
-        connected: { type: Boolean, default: false },
-        time: { type: Date }
-    }));
-    return Model;
-}
+  const Model = mongoose.model(
+    "mac",
+    new mongoose.Schema({
+      ap: { type: Number },
+      company: { type: String },
+      connected: { type: Boolean, default: false },
+      mac: { type: String, required: true, unique: true },
+      sta: { type: Number },
+      time: { type: Date },
+      type: { type: Number },
+      ver: { type: String },
+    }),
+  );
+  return Model;
+};

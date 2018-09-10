@@ -22,6 +22,12 @@ RUN npm install
 # our app's code don't bust Docker's cache)
 ADD . /app
 
+# Global install tslint
+RUN npm install tslint -g
+
+## Run code detecting apparatus 
+RUN npm run lint
+
 # Global install typescript
 RUN npm install -g typescript
 

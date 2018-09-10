@@ -1,22 +1,22 @@
-module.exports = (mongoose:any) => {
-    const Model = mongoose.model('sysInfo', new mongoose.Schema({
-        mac: {
-            type: String,
-            required: true
-        },
-        timestamp: {
-            type: String,
-            required: true
-        },
+module.exports = (mongoose: any) => {
+    const Model = mongoose.model("sysInfo", new mongoose.Schema({
         keyWord: {
-            type: String,
             required: true,
-            unique: true
+            type: String,
+            unique: true,
+        },
+        mac: {
+            required: true,
+            type: String,
+        },
+        payload: {},
+        timestamp: {
+            required: true,
+            type: String,
         },
         topic: {
-            type: String
+            type: String,
         },
-        payload: {}
     }));
     return Model;
-}
+};
