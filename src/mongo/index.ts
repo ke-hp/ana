@@ -2,7 +2,10 @@ import * as fs from "fs";
 import * as mongoose from "mongoose";
 import * as path from "path";
 
-mongoose.connect(process.env.MONGO_URI);
+mongoose.connect(
+  process.env.MONGO_URI,
+  { useNewUrlParser: true },
+);
 (mongoose as any).Promise = global.Promise;
 
 const basename = path.basename(module.filename);

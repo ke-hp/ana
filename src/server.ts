@@ -1,4 +1,3 @@
-global.__base = __dirname + "/";
 import * as dotenv from "dotenv";
 dotenv.config();
 import * as Debug from "debug";
