@@ -26,7 +26,7 @@ fs.readdirSync(__dirname)
 const mongo = mongoose.connection;
 
 mongo.on("error", (err: any) => {
-  // console.log("Connection error:", err.message);
+  console.error("Connection error:", err.message);
 });
 
 mongo.once("open", async function callback() {
