@@ -16,7 +16,7 @@ const client = mqtt.connect(
 
 client.on("connect", () => {
 	debug(">>> connected");
-	client.subscribe(`kp/${process.env.MQTT_MOSCA_ID}/#`);
+	client.subscribe(`kp/mosca/#`);
 	client.subscribe("+/exec/#");
 	client.subscribe("+/sysinfo/report/#");
 	client.subscribe(`$SYS/${process.env.MQTT_MOSCA_ID}/clients/state`);
