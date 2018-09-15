@@ -24,6 +24,9 @@ module.exports = (mongoose: any) => {
 				type: Date,
 			},
 			type: {
+				type: String,
+			},
+			uptime: {
 				type: Number,
 			},
 			ver: {

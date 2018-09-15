@@ -4,9 +4,9 @@
   "description": "server",
   "main": "bin/www.js",
   "scripts": {
-    "start": "tslint src/**/*.ts && tsc && node dist/server.js",
-    "lint": "tslint src/**/*.ts",
-    "lint-fix": "tslint --fix src/**/*.ts",
+    "start": "tslint --fix -p . && tsc && node dist/server.js",
+    "lint": "tslint -p .",
+    "lint-fix": "tslint --fix -p .",
     "commit": "commit-wizard"
   },
   "repository": {
