@@ -10,15 +10,13 @@ async function persist(topic: any, message: any) {
 	switch (topics[1]) {
 		case process.env.MQTT_MOSCA_ID:
 			const msg = JSON.parse(message);
+			console.log("message", msg);
 
 			if (/^[A-F0-9]{12}$/.test(msg.mac)) {
-				if ("connected" in msg && !msg.connected) {
+				if (!msg.connected) {
 					await disconnect(topics, msg);
 				}
 				await connectedHistory(topics, msg);
-			}
-			if (topics.indexOf("device_info") !== -1) {
-				await deviceinfo(topics, msg);
 			}
 			break;
 
@@ -48,31 +46,6 @@ async function disconnect(topics: any, msg: any) {
 			},
 		);
 		return;
-	} catch (error) {
-		debug(error);
-		return;
-	}
-}
-
-async function deviceinfo(topics: any, msg: any) {
-	debug("Enter deviceinfo method!");
-
-	try {
-		console.log("23222222222222222");
-	 await mongos.mac.findOneAndUpdate(
-			{
-				mac: msg.id,
-			},
-			{
-				type: msg.name,
-				uptime: msg.uptime,
-				ver: msg.sversion,
-			},
-			{
-				upsert: true,
-			},
-		);
-	 return;
 	} catch (error) {
 		debug(error);
 		return;

@@ -15,8 +15,8 @@ const client = mqtt.connect(
 );
 
 client.on("connect", () => {
+	console.log("ana连接上生产的mqtt");
 	debug(">>> connected");
-	client.subscribe("kp/mosca/#");
 	client.subscribe("+/exec/#");
 	client.subscribe("+/sysinfo/report/#");
 	client.subscribe(`$SYS/${process.env.MQTT_MOSCA_ID}/clients/state`);
@@ -25,10 +25,10 @@ client.on("connect", () => {
 client.on("message", async (topic: any, message: any) => {
 	debug("message", topic);
 
-	try {
-		await persist(topic, message);
-		return;
-	} catch (error) {
-		return error;
-	}
+	// try {
+	await persist(topic, message);
+	return;
+	// } catch (error) {
+	// 	return error;
+	// }
 });
