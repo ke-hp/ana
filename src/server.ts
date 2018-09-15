@@ -15,7 +15,7 @@ const client = mqtt.connect(
 );
 
 client.on("connect", () => {
-	console.log("ana连接上生产的mqtt");
+	console.log("ana connect mqtt");
 	debug(">>> connected");
 	client.subscribe("+/exec/#");
 	client.subscribe("+/sysinfo/report/#");

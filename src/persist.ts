@@ -6,31 +6,33 @@ async function persist(topic: any, message: any) {
 	debug("Enter persist method!");
 
 	const topics = topic.split("/");
+	const msg = JSON.parse(message);
+	console.log("message", msg);
 
-	switch (topics[1]) {
-		case process.env.MQTT_MOSCA_ID:
-			const msg = JSON.parse(message);
-			console.log("message", msg);
+// 	switch (topics[1]) {
+// 		case process.env.MQTT_MOSCA_ID:
+// 			const msg = JSON.parse(message);
+// 			console.log("message", msg);
 
-			if (/^[A-F0-9]{12}$/.test(msg.mac)) {
-				if (!msg.connected) {
-					await disconnect(topics, msg);
-				}
-				await connectedHistory(topics, msg);
-			}
-			break;
+// 			if (/^[A-F0-9]{12}$/.test(msg.mac)) {
+// 				if (!msg.connected) {
+// 					await disconnect(topics, msg);
+// 				}
+// 				await connectedHistory(topics, msg);
+// 			}
+// 			break;
 
-		case "sysinfo":
-			await sysinfo(topics, message);
-			break;
+// 		case "sysinfo":
+// 			await sysinfo(topics, message);
+// 			break;
 
-		case "exec":
-			await exec(topics, message);
-			break;
+// 		case "exec":
+// 			await exec(topics, message);
+// 			break;
 
-		default:
-			break;
-	}
+// 		default:
+// 			break;
+// 	}
 }
 
 async function disconnect(topics: any, msg: any) {
